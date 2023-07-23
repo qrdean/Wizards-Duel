@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctevcm235eqif"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_01kec"]
+[ext_resource type="PackedScene" uid="uid://6dbijodhjvl" path="res://player.tscn" id="1_ajfb4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_egpcj"]
+size = Vector3(500, 0.1, 500)
+
+[node name="world" type="Node3D"]
+script = ExtResource("1_01kec")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(500, 0.1, 500)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_egpcj")
+
+[node name="player" parent="." instance=ExtResource("1_ajfb4")]
+
+[node name="lights" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.977867, 0.209226, 0, -0.209226, 0.977867, 0, 4.24839, 3.19532)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="lights"]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.854422, -4.69447)
+
+[connection signal="fire" from="player" to="." method="_on_character_body_3d_fire"]

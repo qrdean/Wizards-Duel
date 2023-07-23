@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://crat4edjm3jh7"]
+
+[ext_resource type="Script" path="res://weapon.gd" id="1_v6m6j"]
+[ext_resource type="PackedScene" uid="uid://brjjghno16ho7" path="res://bolt.tscn" id="2_ljryb"]
+
+[node name="staff" type="Node3D"]
+script = ExtResource("1_v6m6j")
+bullet = ExtResource("2_ljryb")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(0.1, 1.5, 0.1)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.842187, 0)
+radius = 0.05
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

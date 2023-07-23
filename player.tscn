@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://6dbijodhjvl"]
+
+[ext_resource type="PackedScene" uid="uid://crat4edjm3jh7" path="res://weapon.tscn" id="1_5d8d7"]
+[ext_resource type="Script" path="res://player.gd" id="1_80w44"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_frqbv"]
+height = 1.7
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_80w44")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.85, 2.08165e-12)
+height = 1.7
+sides = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.85, 2.08165e-12)
+shape = SubResource("CapsuleShape3D_frqbv")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30384, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+
+[node name="weapons" type="Node3D" parent="."]
+
+[node name="staff" parent="weapons" instance=ExtResource("1_5d8d7")]
+transform = Transform3D(1, 0, 0, 0, 0.987507, 0.157572, 0, -0.157572, 0.987507, 0.635913, 0.896701, -0.623419)
