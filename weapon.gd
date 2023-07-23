@@ -5,14 +5,15 @@ class_name Staff
 
 var can_fire = true
 
-@onready var sphere = $CSGSphere3D
+@onready var sphere = $FlameSphere
 @onready var timer = $Timer
 
-func fire_staff_bolt():
+func fire_staff_bolt(peer_id):
 	if can_fire:
 		can_fire = false
 		timer.start()
 		var newbullet = bullet.instantiate()
+		newbullet.caster_id = peer_id
 		add_child(newbullet)
 		newbullet.transform = sphere.global_transform
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://6dbijodhjvl"]
+[gd_scene load_steps=6 format=3 uid="uid://6dbijodhjvl"]
 
 [ext_resource type="PackedScene" uid="uid://crat4edjm3jh7" path="res://weapon.tscn" id="1_5d8d7"]
 [ext_resource type="Script" path="res://player.gd" id="1_80w44"]
@@ -6,7 +6,25 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_frqbv"]
 height = 1.7
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_75b50"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+properties/2/path = NodePath("head:rotation")
+properties/2/spawn = true
+properties/2/sync = true
+properties/2/watch = false
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_x6518"]
+height = 1.7
+
 [node name="CharacterBody3D" type="CharacterBody3D"]
+collision_layer = 2
 script = ExtResource("1_80w44")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
@@ -23,7 +41,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30384, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head"]
 
-[node name="weapons" type="Node3D" parent="."]
+[node name="weapons" type="Node3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.30384, 0)
 
-[node name="staff" parent="weapons" instance=ExtResource("1_5d8d7")]
+[node name="staff" parent="head/weapons" instance=ExtResource("1_5d8d7")]
 transform = Transform3D(1, 0, 0, 0, 0.987507, 0.157572, 0, -0.157572, 0.987507, 0.635913, 0.896701, -0.623419)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_75b50")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.85, 2.08165e-12)
+shape = SubResource("CylinderShape3D_x6518")

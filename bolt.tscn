@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://brjjghno16ho7"]
+[gd_scene load_steps=4 format=3 uid="uid://brjjghno16ho7"]
 
 [ext_resource type="Script" path="res://bolt.gd" id="1_rbrq4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ael0"]
+albedo_color = Color(1, 0.145098, 0.223529, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_logvi"]
 radius = 0.1
@@ -10,8 +13,9 @@ script = ExtResource("1_rbrq4")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 radius = 0.1
+material = SubResource("StandardMaterial3D_8ael0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_logvi")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

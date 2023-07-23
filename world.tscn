@@ -1,23 +1,121 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctevcm235eqif"]
+[gd_scene load_steps=11 format=3 uid="uid://drbsqqyw0o702"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_01kec"]
-[ext_resource type="PackedScene" uid="uid://6dbijodhjvl" path="res://player.tscn" id="1_ajfb4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gw7he"]
+bg_color = Color(0.898039, 0.160784, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rx8tp"]
+bg_color = Color(0, 0.72549, 0.180392, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jo5ld"]
+albedo_color = Color(0, 0.341176, 0.117647, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_egpcj"]
-size = Vector3(500, 0.1, 500)
+size = Vector3(250, 0.1, 250)
 
-[node name="world" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0kos"]
+albedo_color = Color(0.439216, 0.631373, 0.960784, 1)
+metallic = 0.26
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8uta0"]
+size = Vector3(1, 10, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3rl1"]
+albedo_color = Color(0.439216, 0.631373, 0.960784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xshr5"]
+albedo_color = Color(0.439216, 0.631373, 0.960784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rywpf"]
+albedo_color = Color(0.439216, 0.631373, 0.960784, 1)
+
+[node name="world" type="Node"]
 script = ExtResource("1_01kec")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 389.0
+offset_top = 206.0
+offset_right = -389.0
+offset_bottom = -206.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MainMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HostButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Host
+"
+
+[node name="JoinButton" type="Button" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Join"
+
+[node name="AddressEntry" type="LineEdit" parent="CanvasLayer/MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Enter Address To Join"
+alignment = 1
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 384.0
+offset_top = 14.0
+offset_right = -384.0
+offset_bottom = -605.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_gw7he")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rx8tp")
+max_value = 3.0
+value = 3.0
+show_percentage = false
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-size = Vector3(500, 0.1, 500)
+size = Vector3(250, 0.1, 250)
+material = SubResource("StandardMaterial3D_jo5ld")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_egpcj")
 
-[node name="player" parent="." instance=ExtResource("1_ajfb4")]
+[node name="Node" type="Node" parent="CSGBox3D"]
 
 [node name="lights" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.977867, 0.209226, 0, -0.209226, 0.977867, 0, 4.24839, 3.19532)
@@ -25,6 +123,49 @@ transform = Transform3D(1, 0, 0, 0, 0.977867, 0.209226, 0, -0.209226, 0.977867, 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="lights"]
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.854422, -4.69447)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.76823, 4.54852, -4.69447)
+size = Vector3(1, 10, 1)
+material = SubResource("StandardMaterial3D_c0kos")
 
-[connection signal="fire" from="player" to="." method="_on_character_body_3d_fire"]
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D2/StaticBody3D"]
+shape = SubResource("BoxShape3D_8uta0")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.61964, 4.75477, 13.1545)
+size = Vector3(1, 10, 1)
+material = SubResource("StandardMaterial3D_s3rl1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D3/StaticBody3D"]
+shape = SubResource("BoxShape3D_8uta0")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.43588, 5.18397, -4.69447)
+size = Vector3(1, 10, 1)
+material = SubResource("StandardMaterial3D_xshr5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D4/StaticBody3D"]
+shape = SubResource("BoxShape3D_8uta0")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.72355, 5.19746, 11.197)
+size = Vector3(1, 10, 1)
+material = SubResource("StandardMaterial3D_rywpf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D5/StaticBody3D"]
+shape = SubResource("BoxShape3D_8uta0")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/MarginContainer/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="spawned" from="MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]
