@@ -26,8 +26,8 @@ func _on_join_button_pressed():
 	main_menu.hide()
 	hud.show()
 	
-	# enet_peer.create_client(address_entry.text, PORT)
-	enet_peer.create_client("localhost", PORT)
+	enet_peer.create_client(address_entry.text, PORT)
+	# enet_peer.create_client("localhost", PORT)
 	multiplayer.multiplayer_peer = enet_peer
 
 
@@ -59,8 +59,12 @@ func upnp_setup():
 		
 	assert(upnp.get_gateway() and upnp.get_gateway().is_valid_gateway(), \
 		"UPNP Invalid Gateway!")
-	
-	var map_result = upnp.add_port_mapping(PORT)
+		
+	var map_result = upnp.delete_port_mapping(PORT)
+	assert(map_result == UPNP.UPNP_RESULT_SUCCESS, \
+		"UPNP Delete Port Mapping Failed! Error %s" % map_result)
+
+	map_result = upnp.add_port_mapping(PORT)
 	assert(map_result == UPNP.UPNP_RESULT_SUCCESS, \
 		"UPNP Port Mapping Failed! Error %s" % map_result)
 	
