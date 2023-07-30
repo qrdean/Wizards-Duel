@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=2 format=3 uid="uid://risfk20hwxci"]
+
+[ext_resource type="Script" path="res://weapon_resource.gd" id="1_y2l2k"]
+
+[resource]
+script = ExtResource("1_y2l2k")
+Weapon_Name = "blasterP"
+Ready_Anim = "blasterP Ready"
+Unready_Anim = "blasterP Unready"
+Reload_Anim = "blasterP Reload"
+Shoot_Anim = "blasterP Shoot"
+Out_Of_Ammo_Anim = "blasterP OOA"
+Current_Ammo = 30
+Reserve_Ammo = 60
+Magazine = 30
+Max_Ammo = 120
+Auto_Fire = true
+Damage = 2
+Weapon_Range = 1000
+Type = 1
+Projectile_Velocity = 0

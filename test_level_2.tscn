@@ -1,0 +1,145 @@
+[gd_scene load_steps=24 format=3 uid="uid://c71ovvfvi1dnm"]
+
+[ext_resource type="PackedScene" uid="uid://6dbijodhjvl" path="res://player.tscn" id="1_5w0ug"]
+[ext_resource type="PackedScene" uid="uid://cciasvknt6trr" path="res://level_assets/pipes/pipe_corner_2.tscn" id="2_gx60j"]
+[ext_resource type="PackedScene" uid="uid://t3tcp557u26v" path="res://level_assets/gate_complex_2.tscn" id="3_kn3jx"]
+[ext_resource type="PackedScene" uid="uid://0fyjnm1cj2q5" path="res://level_assets/terrain/terrain_ramp_2.tscn" id="4_s3i6t"]
+[ext_resource type="PackedScene" uid="uid://ccplidgekdq46" path="res://level_assets/terrain/terrain_ramp_large_2.tscn" id="5_tcuhh"]
+[ext_resource type="PackedScene" uid="uid://3yl7qvnhoscm" path="res://level_assets/terrain/terrain_road_cross_2.tscn" id="6_w27sj"]
+[ext_resource type="PackedScene" uid="uid://i6rqweu1tw6d" path="res://level_assets/terrain/terrain_road_end_2.tscn" id="7_fdvgf"]
+[ext_resource type="PackedScene" uid="uid://dfxdknx56ejbd" path="res://level_assets/terrain/terrain_road_split_2.tscn" id="8_hbm6n"]
+[ext_resource type="PackedScene" uid="uid://dpcadu8vjfpd2" path="res://level_assets/terrain/terrain_side_2.tscn" id="9_ljldh"]
+[ext_resource type="PackedScene" uid="uid://jsyf2jrf8aih" path="res://level_assets/terrain/terrain_side_cliff_2.tscn" id="10_4fgci"]
+[ext_resource type="PackedScene" uid="uid://dgciamnfabh0n" path="res://level_assets/terrain/terrain_side_corner_2.tscn" id="11_f558i"]
+[ext_resource type="PackedScene" uid="uid://cnhpviridh8go" path="res://level_assets/terrain/terrain_side_corner_inner_2.tscn" id="12_n1reb"]
+[ext_resource type="PackedScene" uid="uid://dasb5qi027bt2" path="res://level_assets/terrain/terrain_side_end_2.tscn" id="13_yg5u6"]
+[ext_resource type="PackedScene" uid="uid://d2eoh5fq2rl8l" path="res://objects/weapons/pickups/blaster_f_pickup.tscn" id="14_uyhky"]
+[ext_resource type="PackedScene" uid="uid://m3odbh84lkky" path="res://objects/weapons/pickups/blaster_p_pickup.tscn" id="15_72pur"]
+[ext_resource type="PackedScene" uid="uid://lm2uxw6dkn7y" path="res://objects/weapons/pickups/blaster_g_clip.tscn" id="16_6j5o3"]
+[ext_resource type="PackedScene" uid="uid://dsplxrcntm5au" path="res://objects/weapons/pickups/blaster_p_clip.tscn" id="17_6ntp3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c1838"]
+albedo_color = Color(0.992157, 0.788235, 0.701961, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_djqo8"]
+size = Vector3(250, 0.5, 250)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dmbw6"]
+sun_angle_max = 103.68
+
+[sub_resource type="Sky" id="Sky_ialxv"]
+sky_material = SubResource("ProceduralSkyMaterial_dmbw6")
+
+[sub_resource type="Environment" id="Environment_mvyuv"]
+background_mode = 2
+sky = SubResource("Sky_ialxv")
+tonemap_mode = 3
+ssr_enabled = true
+ssao_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.6, 0.65098, 0.694118, 1)
+fog_light_energy = 0.55
+fog_sky_affect = 0.75
+fog_height = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d57rf"]
+
+[node name="test_level_2" type="Node"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(250, 0.5, 250)
+material = SubResource("StandardMaterial3D_c1838")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_djqo8")
+
+[node name="player" parent="." instance=ExtResource("1_5w0ug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mvyuv")
+
+[node name="lights" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 0.901448, 0.432888, 0, -0.432888, 0.901448, 0, 2.03339, 1.9718)
+light_color = Color(0.898039, 0.898039, 0.858824, 1)
+shadow_enabled = true
+
+[node name="pipe_corner2" parent="." instance=ExtResource("2_gx60j")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -1, 0.262581, -8)
+
+[node name="gate_complex2" parent="." instance=ExtResource("3_kn3jx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -4)
+
+[node name="terrain_ramp2" parent="." instance=ExtResource("4_s3i6t")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 0.250725, -7.169)
+
+[node name="terrain_rampLarge2" parent="." instance=ExtResource("5_tcuhh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 0.226527, -3)
+
+[node name="terrain_roadCross2" parent="." instance=ExtResource("6_w27sj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8, 0.397857, 2)
+
+[node name="terrain_roadEnd2" parent="." instance=ExtResource("7_fdvgf")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.74327, 0.2701, 4.55718)
+
+[node name="terrain_roadSplit2" parent="." instance=ExtResource("8_hbm6n")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -14.846, 1.22266, -11.5778)
+
+[node name="terrain_roadSplit3" parent="." instance=ExtResource("8_hbm6n")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.8586, 1.22266, -11.5778)
+
+[node name="terrain_roadSplit4" parent="." instance=ExtResource("8_hbm6n")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -18.8289, 1.22266, -11.5778)
+
+[node name="terrain_roadSplit5" parent="." instance=ExtResource("8_hbm6n")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -20.8247, 1.22266, -11.5778)
+surface_material_override/0 = SubResource("StandardMaterial3D_d57rf")
+
+[node name="terrain_side2" parent="." instance=ExtResource("9_ljldh")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12.0658, 1.35047, -2.48493)
+
+[node name="terrain_sideCliff2" parent="." instance=ExtResource("10_4fgci")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -12.1809, 0.25, -17.1978)
+
+[node name="terrain_sideCorner2" parent="." instance=ExtResource("11_f558i")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -11.1817, 0.0622134, -15.9212)
+
+[node name="terrain_sideCornerInner2" parent="." instance=ExtResource("12_n1reb")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -11.2291, 0.13071, -14.2072)
+
+[node name="terrain_sideEnd2" parent="." instance=ExtResource("13_yg5u6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -12.9113, 0.25, -14.5591)
+
+[node name="terrain_sideEnd3" parent="." instance=ExtResource("13_yg5u6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -13.9184, 0.25, -14.5634)
+
+[node name="terrain_sideEnd4" parent="." instance=ExtResource("13_yg5u6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -14.914, 0.25, -14.5605)
+
+[node name="terrain_sideEnd5" parent="." instance=ExtResource("13_yg5u6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.9138, 0.25, -14.5634)
+
+[node name="terrain_sideEnd6" parent="." instance=ExtResource("13_yg5u6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -16.9094, 0.25, -14.5605)
+
+[node name="terrain_sideEnd7" parent="." instance=ExtResource("13_yg5u6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -17.6181, 0.25, -14.5634)
+
+[node name="terrain_sideEnd8" parent="." instance=ExtResource("13_yg5u6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -18.6137, 0.25, -14.5605)
+
+[node name="blasterF_pickup" parent="." instance=ExtResource("14_uyhky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.25319, 0.25, -2.36802)
+
+[node name="blasterP_pickup" parent="." instance=ExtResource("15_72pur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.64315, 0.25, -2.44094)
+
+[node name="blasterG_clip" parent="." instance=ExtResource("16_6j5o3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.22487, 0.25, -0.611747)
+
+[node name="blasterP_clip" parent="." instance=ExtResource("17_6ntp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38268, 0.25, -0.572151)

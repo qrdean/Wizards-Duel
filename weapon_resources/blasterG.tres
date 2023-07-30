@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=2 format=3 uid="uid://diq2ykt5pw356"]
+
+[ext_resource type="Script" path="res://weapon_resource.gd" id="1_hlipp"]
+
+[resource]
+script = ExtResource("1_hlipp")
+Weapon_Name = "blasterG"
+Ready_Anim = "blasterG Ready"
+Unready_Anim = "blasterG Unready"
+Reload_Anim = "blasterG Reload"
+Shoot_Anim = "blasterG Shoot"
+Out_Of_Ammo_Anim = "blasterG OOA"
+Current_Ammo = 30
+Reserve_Ammo = 60
+Magazine = 30
+Max_Ammo = 160
+Auto_Fire = true
+Damage = 1
+Weapon_Range = 3000
+Type = 1
+Projectile_Velocity = 0

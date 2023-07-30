@@ -1,0 +1,216 @@
+[gd_scene load_steps=14 format=3 uid="uid://57wus472ua8g"]
+
+[ext_resource type="Material" uid="uid://b5nnis447lby0" path="res://models/textures/light_gray_02.tres" id="1_01k13"]
+[ext_resource type="Material" uid="uid://dq8r5t18lciv2" path="res://models/textures/green_grid_02.tres" id="2_p6huc"]
+[ext_resource type="PackedScene" uid="uid://6dbijodhjvl" path="res://player.tscn" id="3_fs0x0"]
+[ext_resource type="Material" uid="uid://da7vd3axeng8s" path="res://models/textures/black_grid_01.tres" id="3_kfxhl"]
+[ext_resource type="PackedScene" uid="uid://dx7t2whctcs5s" path="res://prototype_assets/proto_building.tscn" id="3_w66oc"]
+[ext_resource type="Material" uid="uid://dakh8drysbjbc" path="res://models/textures/purple_grid_02.tres" id="4_fcp3r"]
+[ext_resource type="PackedScene" uid="uid://c03hq78e6mpuu" path="res://objects/weapons/pickups/blaster_f_clip.tscn" id="7_vm2il"]
+[ext_resource type="PackedScene" uid="uid://d2eoh5fq2rl8l" path="res://objects/weapons/pickups/blaster_f_pickup.tscn" id="8_1d8yd"]
+[ext_resource type="PackedScene" uid="uid://m3odbh84lkky" path="res://objects/weapons/pickups/blaster_p_pickup.tscn" id="9_gvfqh"]
+[ext_resource type="PackedScene" uid="uid://dsplxrcntm5au" path="res://objects/weapons/pickups/blaster_p_clip.tscn" id="10_1tegy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ol2yp"]
+sun_angle_max = 103.68
+
+[sub_resource type="Sky" id="Sky_05xjj"]
+sky_material = SubResource("ProceduralSkyMaterial_ol2yp")
+
+[sub_resource type="Environment" id="Environment_kbn7j"]
+background_mode = 2
+sky = SubResource("Sky_05xjj")
+tonemap_mode = 3
+ssr_enabled = true
+ssao_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.6, 0.65098, 0.694118, 1)
+fog_light_energy = 0.55
+fog_sky_affect = 0.75
+fog_height = 0.4
+
+[node name="proto_level_1" type="Node"]
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kbn7j")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="Floor" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(100, 1, 50)
+material = ExtResource("1_01k13")
+
+[node name="Side" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.282, -23.5511)
+size = Vector3(100, 25, 3)
+material = ExtResource("1_01k13")
+
+[node name="Side2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.7036, 23.3994)
+size = Vector3(100, 25, 3)
+material = ExtResource("1_01k13")
+
+[node name="Side4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.529, 12, 0)
+size = Vector3(3, 25, 50)
+material = ExtResource("1_01k13")
+
+[node name="Side3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6096, 12, 0)
+size = Vector3(3, 25, 50)
+material = ExtResource("1_01k13")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9345, 3.43739, 3.19734)
+visible = false
+radius = 0.909
+height = 6.0
+material = ExtResource("2_p6huc")
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 2.11746, 0, 0, 0, 1, 2.38556, 8.41124, -13.9338)
+radius = 1.6408
+height = 7.5
+material = ExtResource("2_p6huc")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9345, 2.71407, 7.04864)
+visible = false
+radius = 0.909
+height = 4.5
+material = ExtResource("2_p6huc")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9345, 1.99942, 11.14)
+visible = false
+radius = 0.909
+height = 3.0
+material = ExtResource("2_p6huc")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26636, 14.8101)
+radius = 0.909
+height = 1.5
+material = ExtResource("2_p6huc")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.88537, 2.74111, 11.1213)
+radius = 0.909
+height = 1.5
+material = ExtResource("2_p6huc")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13984, 4.1873, 8.52846)
+radius = 0.909
+height = 1.5
+material = ExtResource("2_p6huc")
+
+[node name="CSGCylinder3D10" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38188, 2.49054, -13.9366)
+operation = 2
+radius = 1.65
+height = 0.722
+material = ExtResource("2_p6huc")
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.09961, 5.69877, 7.08858)
+radius = 0.909
+height = 1.5
+material = ExtResource("2_p6huc")
+
+[node name="CSGCylinder3D9" type="CSGCylinder3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9816, 7.33672, 7.08858)
+radius = 0.909
+height = 1.5
+material = ExtResource("2_p6huc")
+
+[node name="Rock" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.741725, -9.51856)
+radius = 2.5
+material = ExtResource("3_kfxhl")
+
+[node name="Rock2" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1519, 0.258275, 6.36952)
+radius = 2.5
+material = ExtResource("3_kfxhl")
+
+[node name="rock" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8848, 0.258275, 6.36952)
+radius = 2.5
+material = ExtResource("3_kfxhl")
+
+[node name="rock2" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8848, -0.741725, -10.2293)
+radius = 2.5
+material = ExtResource("3_kfxhl")
+
+[node name="rock3" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5561, -0.741725, 10.3427)
+radius = 2.5
+material = ExtResource("3_kfxhl")
+
+[node name="rock4" type="CSGSphere3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.7697, 0.258275, -6.09177)
+radius = 2.5
+material = ExtResource("3_kfxhl")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37204, 8.02368, -13.7778)
+size = Vector3(1, 10, 17)
+
+[node name="player" parent="." instance=ExtResource("3_fs0x0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1344, 1, -2.67231)
+
+[node name="building" parent="." instance=ExtResource("3_w66oc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 34, 0.593172, -3)
+
+[node name="Ground Floor" parent="building" index="0"]
+material = ExtResource("4_fcp3r")
+
+[node name="2nd Floor" parent="building" index="1"]
+material = ExtResource("4_fcp3r")
+
+[node name="Roof" parent="building" index="2"]
+material = ExtResource("4_fcp3r")
+
+[node name="Back" parent="building" index="3"]
+material = ExtResource("4_fcp3r")
+
+[node name="Front" parent="building" index="4"]
+material = ExtResource("4_fcp3r")
+
+[node name="Side" parent="building" index="5"]
+material = ExtResource("4_fcp3r")
+
+[node name="Side2" parent="building" index="6"]
+material = ExtResource("4_fcp3r")
+
+[node name="building2" parent="." instance=ExtResource("3_w66oc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 0.593172, -2)
+
+[node name="blasterF_clip" parent="." instance=ExtResource("7_vm2il")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.8959, 6.06306, -13.1252)
+
+[node name="blasterF_pickup" parent="." instance=ExtResource("8_1d8yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.283, 6.07015, -12.4927)
+
+[node name="blasterF_clip2" parent="." instance=ExtResource("7_vm2il")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.6181, 6.12866, 8.23976)
+
+[node name="blasterF_pickup2" parent="." instance=ExtResource("8_1d8yd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -31.7533, 6.14824, 7.71096)
+
+[node name="blasterP_pickup" parent="." instance=ExtResource("9_gvfqh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.2211, 1.4053, -12.0637)
+
+[node name="blasterP_clip" parent="." instance=ExtResource("10_1tegy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.8341, 1.30477, -12.4069)
+
+[node name="blasterP_pickup2" parent="." instance=ExtResource("9_gvfqh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 29.9755, 1.38377, 7.58976)
+
+[node name="blasterP_clip2" parent="." instance=ExtResource("10_1tegy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.4126, 1.34671, 7.59612)
+
+[editable path="building"]

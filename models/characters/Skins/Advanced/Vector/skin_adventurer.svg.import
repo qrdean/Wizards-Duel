@@ -1,0 +1,26 @@
+[remap]
+
+importer="3d_texture"
+type="CompressedTexture3D"
+uid="uid://bib4sq8whfxmw"
+path="res://.godot/imported/skin_adventurer.svg-e34689a0ed6a48314a213fead948b3f4.ctex3d"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://models/characters/Skins/Advanced/Vector/skin_adventurer.svg"
+dest_files=["res://.godot/imported/skin_adventurer.svg-e34689a0ed6a48314a213fead948b3f4.ctex3d"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=8
+slices/vertical=8

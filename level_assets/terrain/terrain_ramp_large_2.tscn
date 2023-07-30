@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccplidgekdq46"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_almjv"]
+resource_name = "rockDark"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.853244, 0.644164, 0.549494, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unt7m"]
+resource_name = "rock"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.959256, 0.746862, 0.656282, 1)
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_31qu6"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.50001, 2.00001),
+"format": 4097,
+"index_count": 6,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 5, 0, 3, 0, 4, 0),
+"name": "rockDark",
+"primitive": 3,
+"vertex_count": 6,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 63, 0, 0, 0, 191, 0, 0, 0, 63, 249, 15, 169, 39, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 169, 19, 208, 37, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 63, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191)
+}, {
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.50001, 2.00001),
+"format": 4097,
+"index_count": 6,
+"index_data": PackedByteArray(4, 0, 0, 0, 2, 0, 2, 0, 5, 0, 4, 0),
+"name": "rock",
+"primitive": 3,
+"vertex_count": 6,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 63, 0, 0, 0, 191, 0, 0, 0, 63, 249, 15, 169, 39, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 169, 19, 208, 37, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 63, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1ciei"]
+resource_name = "terrain_rampLarge_Mesh terrain_rampLarge"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.50001, 2.00001),
+"attribute_data": PackedByteArray(113, 56, 108, 194, 246, 122, 149, 193, 171, 170, 146, 170, 246, 122, 149, 193, 246, 122, 157, 65, 0, 0, 128, 63, 0, 0, 128, 40, 246, 122, 149, 193, 113, 56, 108, 66, 246, 122, 149, 193, 246, 122, 157, 193, 0, 0, 128, 63, 246, 122, 157, 65, 203, 67, 116, 194, 246, 122, 157, 65, 66, 199, 160, 65, 246, 122, 157, 193, 203, 67, 116, 194, 246, 122, 157, 193, 66, 199, 160, 65),
+"format": 4119,
+"index_count": 6,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 5, 0, 3, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_almjv"),
+"name": "rockDark",
+"primitive": 3,
+"vertex_count": 10,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 63, 255, 255, 255, 127, 255, 255, 255, 255, 0, 0, 0, 191, 0, 0, 0, 63, 249, 15, 169, 39, 255, 255, 255, 127, 255, 255, 255, 255, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 191, 255, 255, 255, 127, 255, 255, 255, 255, 0, 0, 0, 63, 0, 0, 0, 63, 169, 19, 208, 37, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 63, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 63, 153, 153, 255, 255, 0, 0, 0, 128, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 191, 153, 153, 255, 255, 0, 0, 0, 128, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 63, 153, 153, 255, 255, 0, 0, 0, 128, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 153, 153, 255, 255, 0, 0, 0, 128)
+}, {
+"aabb": AABB(-0.5, 0, -0.5, 1, 0.50001, 2.00001),
+"attribute_data": PackedByteArray(113, 56, 108, 194, 246, 122, 149, 193, 171, 170, 146, 170, 246, 122, 149, 193, 246, 122, 157, 65, 0, 0, 128, 63, 0, 0, 128, 40, 246, 122, 149, 193, 113, 56, 108, 66, 246, 122, 149, 193, 246, 122, 157, 193, 0, 0, 128, 63, 246, 122, 157, 65, 203, 67, 116, 194, 246, 122, 157, 65, 66, 199, 160, 65, 246, 122, 157, 193, 203, 67, 116, 194, 246, 122, 157, 193, 66, 199, 160, 65),
+"format": 4119,
+"index_count": 6,
+"index_data": PackedByteArray(8, 0, 6, 0, 7, 0, 7, 0, 9, 0, 8, 0),
+"material": SubResource("StandardMaterial3D_unt7m"),
+"name": "rock",
+"primitive": 3,
+"vertex_count": 10,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 63, 255, 255, 255, 127, 0, 0, 0, 128, 0, 0, 0, 191, 0, 0, 0, 63, 249, 15, 169, 39, 255, 255, 255, 127, 0, 0, 0, 128, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 191, 255, 255, 255, 127, 0, 0, 0, 128, 0, 0, 0, 63, 0, 0, 0, 63, 169, 19, 208, 37, 0, 0, 255, 127, 0, 0, 0, 128, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 63, 0, 0, 255, 127, 0, 0, 0, 128, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 0, 0, 255, 127, 0, 0, 0, 128, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 63, 153, 153, 255, 255, 0, 0, 255, 191, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 191, 153, 153, 255, 255, 0, 0, 255, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 63, 153, 153, 255, 255, 0, 0, 255, 191, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 153, 153, 255, 255, 0, 0, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_31qu6")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dftph"]
+data = PackedVector3Array(-0.5, 0, -0.5, -0.5, 0.5, 1.5, -0.5, 0.5, 0, 0.5, 0, -0.5, 0.5, 0.5, 0, 0.5, 0.5, 1.5, 0.5, 0.5, 1.5, -0.5, 0.5, 1.5, -0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0.5, 1.5)
+
+[node name="terrain_rampLarge2" type="MeshInstance3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("ArrayMesh_1ciei")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dftph")

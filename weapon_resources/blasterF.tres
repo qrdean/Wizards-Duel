@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=2 format=3 uid="uid://b0l6doerci8ft"]
+
+[ext_resource type="Script" path="res://weapon_resource.gd" id="1_fjpol"]
+
+[resource]
+script = ExtResource("1_fjpol")
+Weapon_Name = "blasterF"
+Ready_Anim = "blasterF Ready"
+Unready_Anim = "blasterF Unready"
+Reload_Anim = "blasterF Reload"
+Shoot_Anim = "blasterF Shoot"
+Out_Of_Ammo_Anim = "blasterF OOA"
+Current_Ammo = 5
+Reserve_Ammo = 10
+Magazine = 5
+Max_Ammo = 20
+Auto_Fire = false
+Damage = 5
+Weapon_Range = 3000
+Type = 1
+Projectile_Velocity = 0

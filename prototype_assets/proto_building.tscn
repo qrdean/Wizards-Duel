@@ -1,0 +1,118 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx7t2whctcs5s"]
+
+[ext_resource type="Material" uid="uid://tnr4mw8udlm1" path="res://models/textures/orange_grid_02.tres" id="1_t4ovv"]
+[ext_resource type="Material" uid="uid://da7vd3axeng8s" path="res://models/textures/black_grid_01.tres" id="2_isrma"]
+[ext_resource type="Material" uid="uid://dq8r5t18lciv2" path="res://models/textures/green_grid_02.tres" id="3_v74cj"]
+
+[node name="building" type="CSGCombiner3D"]
+use_collision = true
+
+[node name="Ground Floor" type="CSGBox3D" parent="."]
+size = Vector3(25, 1, 15)
+material = ExtResource("1_t4ovv")
+
+[node name="2nd Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.865248, 0, 4.75208, 0)
+size = Vector3(25, 1, 15)
+material = ExtResource("1_t4ovv")
+
+[node name="Roof" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.0209, 0)
+size = Vector3(25, 1, 15)
+material = ExtResource("1_t4ovv")
+
+[node name="Back" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, -6.974)
+size = Vector3(25, 10, 1)
+material = ExtResource("1_t4ovv")
+
+[node name="Front" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 7)
+size = Vector3(25, 10, 1)
+material = ExtResource("1_t4ovv")
+
+[node name="Side" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0122, 5.5, 0)
+size = Vector3(1, 10, 15)
+material = ExtResource("1_t4ovv")
+
+[node name="Side2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0284, 5.5, 0)
+size = Vector3(1, 10, 15)
+material = ExtResource("1_t4ovv")
+
+[node name="Door1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.533, 7)
+operation = 2
+size = Vector3(1.5, 2, 1.5)
+material = ExtResource("2_isrma")
+
+[node name="Ramp" type="CSGPolygon3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1.57755, 0, 1, 0, -1, 0, -6.89571e-08, 0.772, -0.0893051, 8.51455)
+polygon = PackedVector2Array(-0.920393, -0.00269214, 0.997377, 0.61378, 1, 0)
+material = ExtResource("2_isrma")
+
+[node name="Ramp2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(-3.84817, 0, -1.37914e-07, 0, 4.95873, 0, 3.36418e-07, 0, -1.57755, -7.59171, 0.570529, -1.08481)
+polygon = PackedVector2Array(-0.920393, -0.00269214, 0.997377, 0.61378, 1, 0)
+material = ExtResource("2_isrma")
+
+[node name="Ramp3" type="CSGPolygon3D" parent="."]
+transform = Transform3D(3.84817, 0, 0, 0, 4.95873, 0, 0, 0, 1.57755, 7.54687, 0.570529, 0.996941)
+polygon = PackedVector2Array(-0.920393, -0.00269214, 0.997377, 0.61378, 1, 0)
+material = ExtResource("2_isrma")
+
+[node name="Hole" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.73886, 0)
+operation = 2
+radius = 0.8
+height = 1.1
+material = ExtResource("2_isrma")
+
+[node name="hole2Second" type="CSGBox3D" parent="."]
+transform = Transform3D(1.17676, 0, 0, 0, 0.993716, 0, 0, 0, 0.993716, -10.6102, 4.74904, 0)
+operation = 2
+size = Vector3(1.5, 1.1, 5)
+material = ExtResource("2_isrma")
+
+[node name="hole2Second2" type="CSGBox3D" parent="."]
+transform = Transform3D(1.1842, 0, 0, 0, 1, 0, 0, 0, 1, 10.5585, 4.74904, 0)
+operation = 2
+size = Vector3(1.5, 1.1, 5)
+material = ExtResource("2_isrma")
+
+[node name="support" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.93736, 2.33098, 3.25816)
+height = 4.153
+material = ExtResource("3_v74cj")
+
+[node name="support4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.69832, 2.33098, 3.31057)
+height = 4.153
+material = ExtResource("3_v74cj")
+
+[node name="support2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.113, 2.33098, -3.29088)
+height = 4.153
+material = ExtResource("3_v74cj")
+
+[node name="support3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90384, 2.33098, -3.07612)
+height = 4.153
+material = ExtResource("3_v74cj")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5698, 1.38793, 3.9941)
+material = ExtResource("2_isrma")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.09602, 1.38793, -2.02064)
+material = ExtResource("2_isrma")
+
+[node name="window" type="CSGBox3D" parent="."]
+transform = Transform3D(4.18617, 0, 0, 0, 1, 0, 0, 0, 1.80411, -4.59596, 6.43774, 6.90678)
+operation = 2
+
+[node name="window2" type="CSGBox3D" parent="."]
+transform = Transform3D(4.18617, 0, 0, 0, 1, 0, 0, 0, 1.80411, 4.98495, 6.43774, 6.90678)
+operation = 2

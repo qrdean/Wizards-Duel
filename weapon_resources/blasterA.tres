@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Weapon_Resource" load_steps=3 format=3 uid="uid://yiqb2orvovtn"]
+
+[ext_resource type="Script" path="res://weapon_resource.gd" id="1_3wgrm"]
+[ext_resource type="PackedScene" uid="uid://cbt15nh10shpm" path="res://objects/bullet.tscn" id="1_i6bix"]
+
+[resource]
+script = ExtResource("1_3wgrm")
+Weapon_Name = "blasterA"
+Ready_Anim = "blasterA Ready"
+Unready_Anim = "blasterA Unready"
+Reload_Anim = "blasterA Reload"
+Shoot_Anim = "blasterA Shoot"
+Out_Of_Ammo_Anim = "blasterA OOA"
+Current_Ammo = 10
+Reserve_Ammo = 10
+Magazine = 10
+Max_Ammo = 30
+Auto_Fire = false
+Damage = 1
+Weapon_Range = 3000
+Type = 2
+Projectile_To_Load = ExtResource("1_i6bix")
+Projectile_Velocity = 100
